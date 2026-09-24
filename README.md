@@ -19,12 +19,26 @@ El agente:
 ## 1. Los 6 productos (y como agregar mas)
 
 Toda la info de producto vive en [`data/products.json`](data/products.json).
-Ya viene precargado con los 6 productos de la linea de grip (magnesio en
-polvo, magnesio liquido, grip pads, chalk bag, pole grip y grip tape) **con
-datos de ejemplo marcados como `PENDIENTE`**. El agente va a usar ese
-contenido tal cual hasta que lo reemplaces por la info real (precio,
-descripcion, modo de uso, link de compra, FAQs, etc.). Por diseño, el agente
-**nunca inventa** un dato que no este en este archivo.
+Catalogo real (lista de precios de septiembre): 3 formulas en 2 presentaciones
+cada una =6 SKUs.
+
+| Producto | Categoria | Deportes | Precio menor | Precio mayor | Mayor +50u. |
+|---|---|---|---|---|---|
+| Liquid Grip 150ml | Magnesio liquido | escalada, crossfit, pole dance | $26.500 | $18.500 | $14.800 |
+| Liquid Grip 60ml | Magnesio liquido | escalada, crossfit, pole dance | $10.750 | $6.450 | $5.200 |
+| Super Grip 125ml | Resina liquida | pole dance, tela, gimnasia | $22.100 | $15.400 | $12.300 |
+| Super Grip 60ml | Resina liquida | pole dance, tela, gimnasia | $8.300 | $6.000 | $4.800 |
+| Dry Grip 100cc | Magnesio en polvo | crossfit, halterofilia, escalada | $12.000 | $9.600 | $7.700 |
+| Dry Grip 60cc | Magnesio en polvo | crossfit, halterofilia, escalada | $6.000 | $4.300 | $3.400 |
+
+Todos los precios estan en ARS. Compra minima mayorista: **$250.000**
+(`wholesaleMinOrder` en `data/products.json`). El resto de los campos
+(descripcion detallada, modo de uso exacto, link de compra, imagenes, FAQs)
+sigue marcado como **`PENDIENTE`** hasta que el equipo lo confirme — por
+diseño, el agente **nunca inventa** un dato que no este en este archivo.
+Los deportes asignados a Super Grip (resina liquida) son una inferencia
+razonable a partir del tipo de producto; confirmalos o ajustalos en
+`data/products.json` si no son correctos.
 
 Para agregar un producto nuevo, sumalo al array `products` con la misma
 estructura. En [`data/product-suggestions.json`](data/product-suggestions.json)

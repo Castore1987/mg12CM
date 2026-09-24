@@ -1,157 +1,123 @@
 {
-  "_readme": "EDITAR ESTE ARCHIVO con los datos reales de los 6 productos MG12. Los valores actuales son PLANTILLAS de ejemplo para que el agente funcione desde el primer momento; el Community Manager los usara tal cual hasta que se reemplacen. No inventes precios/stock reales en produccion: el agente solo dice lo que hay aca.",
+  "_readme": "Precios cargados desde la lista real de PRECIOS SEPTIEMBRE (mayorista/minorista/mayorista +50u.). El resto de los campos (descripcion detallada, modo de uso exacto, link de compra, imagenes, FAQs) sigue en PENDIENTE hasta que el equipo lo confirme: el agente no debe inventar esos datos.",
   "brand": "MG12",
   "updatedAt": "2026-09-24",
+  "currency": "ARS",
+  "wholesaleMinOrder": 250000,
   "products": [
     {
-      "id": "grip-powder-pro",
-      "name": "MG12 Grip Powder Pro",
-      "category": "magnesio en polvo",
-      "sports": ["crossfit", "halterofilia", "gimnasia"],
-      "tagline": "Agarre seco y firme para levantamientos y series largas de WOD.",
-      "description": "PENDIENTE: descripcion real del producto (ingredientes, formato del envase, gramaje).",
-      "keyFeatures": [
-        "PENDIENTE: ej. secado rapido, no se apelmaza",
-        "PENDIENTE: presentacion (bloque / bolsa / frasco)"
-      ],
-      "benefits": [
-        "Reduce el deslizamiento de las manos en barra, kettlebell y anillas"
-      ],
-      "idealFor": "Atletas de crossfit y halterofilia que entrenan con cargas altas o alto volumen.",
-      "usage": "PENDIENTE: modo de uso recomendado.",
-      "price": "PENDIENTE",
-      "currency": "ARS",
-      "url": "PENDIENTE: link a la tienda",
-      "images": [],
-      "faqs": [
-        {
-          "q": "Mancha la ropa o el equipo?",
-          "a": "PENDIENTE: respuesta real."
-        }
-      ],
-      "status": "plantilla_pendiente_de_datos_reales"
-    },
-    {
-      "id": "liquid-chalk",
-      "name": "MG12 Liquid Chalk",
+      "id": "liquid-grip-150",
+      "name": "MG12 Liquid Grip 150ml",
       "category": "magnesio liquido",
       "sports": ["escalada", "crossfit", "pole dance"],
-      "tagline": "Agarre de larga duracion, ideal para boulder y series de anillas.",
-      "description": "PENDIENTE: descripcion real (formula, secado, aroma).",
-      "keyFeatures": [
-        "PENDIENTE: duracion del efecto",
-        "PENDIENTE: formato del envase (ml)"
-      ],
-      "benefits": [
-        "Menos reaplicaciones que el magnesio en polvo",
-        "Menor dispersion de polvo en el aire (ideal para boxes y salas cerradas)"
-      ],
-      "idealFor": "Escaladores en boulder/via larga y practicantes de pole dance que necesitan agarre prolongado.",
+      "tagline": "Agarre seco de larga duracion en formato liquido, presentacion grande.",
+      "description": "Magnesio liquido MG12 en presentacion de 150ml. PENDIENTE: detalle de formula, secado y aroma.",
+      "keyFeatures": ["Formato liquido (menor dispersion de polvo en el aire)", "Presentacion de 150ml"],
+      "benefits": ["Reduce el deslizamiento de las manos en barra, presas y figuras invertidas"],
+      "idealFor": "Escaladores, atletas de crossfit y practicantes de pole dance que buscan agarre prolongado sin nube de polvo.",
       "usage": "PENDIENTE: modo de uso recomendado.",
-      "price": "PENDIENTE",
+      "size": "150ml",
       "currency": "ARS",
+      "price": { "wholesale": 18500, "retail": 26500, "wholesaleOver50": 14800 },
       "url": "PENDIENTE: link a la tienda",
       "images": [],
       "faqs": [],
-      "status": "plantilla_pendiente_de_datos_reales"
+      "status": "activo"
     },
     {
-      "id": "grip-pads",
-      "name": "MG12 Grip Pads",
-      "category": "almohadillas de agarre",
-      "sports": ["crossfit", "gimnasia"],
-      "tagline": "Proteccion para las palmas sin perder contacto con la barra.",
-      "description": "PENDIENTE: descripcion real (material, talles disponibles).",
-      "keyFeatures": [
-        "PENDIENTE: material (cuero, sintetico, etc.)",
-        "PENDIENTE: sistema de sujecion (velcro, muneca, dedos)"
-      ],
-      "benefits": [
-        "Previene callos y rasgaduras en pull-ups, muscle-ups y snatch"
-      ],
-      "idealFor": "Atletas de crossfit y gimnasia que hacen alto volumen de trabajo en barra/anillas.",
-      "usage": "PENDIENTE: talles y ajuste recomendado.",
-      "price": "PENDIENTE",
+      "id": "liquid-grip-60",
+      "name": "MG12 Liquid Grip 60ml",
+      "category": "magnesio liquido",
+      "sports": ["escalada", "crossfit", "pole dance"],
+      "tagline": "Agarre seco de larga duracion en formato liquido, presentacion chica/portatil.",
+      "description": "Magnesio liquido MG12 en presentacion de 60ml, ideal para llevar en el bolso de entrenamiento. PENDIENTE: detalle de formula, secado y aroma.",
+      "keyFeatures": ["Formato liquido (menor dispersion de polvo en el aire)", "Presentacion de 60ml, ideal para viajar"],
+      "benefits": ["Reduce el deslizamiento de las manos en barra, presas y figuras invertidas"],
+      "idealFor": "Escaladores, atletas de crossfit y practicantes de pole dance que buscan agarre prolongado sin nube de polvo.",
+      "usage": "PENDIENTE: modo de uso recomendado.",
+      "size": "60ml",
       "currency": "ARS",
+      "price": { "wholesale": 6450, "retail": 10750, "wholesaleOver50": 5200 },
       "url": "PENDIENTE: link a la tienda",
       "images": [],
       "faqs": [],
-      "status": "plantilla_pendiente_de_datos_reales"
+      "status": "activo"
     },
     {
-      "id": "chalk-bag",
-      "name": "MG12 Chalk Bag",
-      "category": "bolsa de magnesio",
-      "sports": ["escalada"],
-      "tagline": "El companero clasico de boulder, con acceso rapido y cierre ajustable.",
-      "description": "PENDIENTE: descripcion real (tamano, material, sistema de cierre).",
-      "keyFeatures": [
-        "PENDIENTE: capacidad",
-        "PENDIENTE: sistema de cinturon/clip"
-      ],
-      "benefits": [
-        "Acceso rapido al magnesio entre movimientos sin perder ritmo de escalada"
-      ],
-      "idealFor": "Escaladores de boulder y via.",
-      "usage": "PENDIENTE.",
-      "price": "PENDIENTE",
+      "id": "super-grip-125",
+      "name": "MG12 Super Grip 125ml",
+      "category": "resina liquida",
+      "sports": ["pole dance", "tela", "gimnasia"],
+      "tagline": "Resina liquida de alta adherencia para trucos invertidos y figuras aereas, presentacion grande.",
+      "description": "Resina liquida MG12 en presentacion de 125ml. PENDIENTE: detalle de formula y compatibilidad con distintos materiales de cano/tela.",
+      "keyFeatures": ["Mayor tack/pegajosidad que el magnesio", "Presentacion de 125ml"],
+      "benefits": ["Mejora el agarre en manos y piernas para figuras invertidas en pole y tela"],
+      "idealFor": "Practicantes de pole dance, tela y gimnasia que necesitan agarre extra en trucos exigentes.",
+      "usage": "PENDIENTE: modo de uso recomendado.",
+      "size": "125ml",
       "currency": "ARS",
+      "price": { "wholesale": 15400, "retail": 22100, "wholesaleOver50": 12300 },
       "url": "PENDIENTE: link a la tienda",
       "images": [],
       "faqs": [],
-      "status": "plantilla_pendiente_de_datos_reales"
+      "status": "activo"
     },
     {
-      "id": "pole-grip",
-      "name": "MG12 Pole Grip",
-      "category": "grip antideslizante para caño y tela",
-      "sports": ["pole dance", "tela", "aro aereo"],
-      "tagline": "Agarre y confianza para trucos invertidos, sin resecar la piel.",
-      "description": "PENDIENTE: descripcion real (formula, tipo -crema/spray/polvo-, compatibilidad con canos de distinto material).",
-      "keyFeatures": [
-        "PENDIENTE: tipo de formula",
-        "PENDIENTE: compatibilidad (cano cromado, titanio gold, silicona, tela)"
-      ],
-      "benefits": [
-        "Mejora el agarre en manos y piernas para figuras invertidas",
-        "Cuida la piel en sesiones largas de entrenamiento"
-      ],
-      "idealFor": "Practicantes de pole dance, tela y aro aereo, desde nivel inicial a competitivo.",
-      "usage": "PENDIENTE.",
-      "price": "PENDIENTE",
+      "id": "super-grip-60",
+      "name": "MG12 Super Grip 60ml",
+      "category": "resina liquida",
+      "sports": ["pole dance", "tela", "gimnasia"],
+      "tagline": "Resina liquida de alta adherencia para trucos invertidos y figuras aereas, presentacion chica/portatil.",
+      "description": "Resina liquida MG12 en presentacion de 60ml, ideal para llevar al estudio o gimnasio. PENDIENTE: detalle de formula y compatibilidad con distintos materiales de cano/tela.",
+      "keyFeatures": ["Mayor tack/pegajosidad que el magnesio", "Presentacion de 60ml, ideal para viajar"],
+      "benefits": ["Mejora el agarre en manos y piernas para figuras invertidas en pole y tela"],
+      "idealFor": "Practicantes de pole dance, tela y gimnasia que necesitan agarre extra en trucos exigentes.",
+      "usage": "PENDIENTE: modo de uso recomendado.",
+      "size": "60ml",
       "currency": "ARS",
-      "url": "PENDIENTE: link a la tienda",
-      "images": [],
-      "faqs": [
-        {
-          "q": "Sirve para tela y para cano por igual?",
-          "a": "PENDIENTE: respuesta real segun formula del producto."
-        }
-      ],
-      "status": "plantilla_pendiente_de_datos_reales"
-    },
-    {
-      "id": "grip-tape",
-      "name": "MG12 Grip Tape",
-      "category": "cinta de agarre",
-      "sports": ["crossfit", "gimnasia", "escalada"],
-      "tagline": "Refuerzo de agarre y proteccion de dedos para barra, anillas y presas.",
-      "description": "PENDIENTE: descripcion real (material, adhesivo, ancho/largo del rollo).",
-      "keyFeatures": [
-        "PENDIENTE: material",
-        "PENDIENTE: resistencia al agua/sudor"
-      ],
-      "benefits": [
-        "Protege dedos y palmas en movimientos de alto roce"
-      ],
-      "idealFor": "Atletas de crossfit, gimnasia y escalada que buscan proteccion adicional.",
-      "usage": "PENDIENTE.",
-      "price": "PENDIENTE",
-      "currency": "ARS",
+      "price": { "wholesale": 6000, "retail": 8300, "wholesaleOver50": 4800 },
       "url": "PENDIENTE: link a la tienda",
       "images": [],
       "faqs": [],
-      "status": "plantilla_pendiente_de_datos_reales"
+      "status": "activo"
+    },
+    {
+      "id": "dry-grip-100",
+      "name": "MG12 Dry Grip 100cc",
+      "category": "magnesio en polvo",
+      "sports": ["crossfit", "halterofilia", "escalada"],
+      "tagline": "Magnesio en polvo clasico para agarre seco y firme, presentacion grande.",
+      "description": "Magnesio en polvo MG12 en presentacion de 100cc. PENDIENTE: detalle de formula y presentacion del envase.",
+      "keyFeatures": ["Formato en polvo tradicional", "Presentacion de 100cc"],
+      "benefits": ["Reduce el deslizamiento de las manos en barra, kettlebell y anillas"],
+      "idealFor": "Atletas de crossfit, halterofilia y escalada que entrenan con cargas altas o alto volumen.",
+      "usage": "PENDIENTE: modo de uso recomendado.",
+      "size": "100cc",
+      "currency": "ARS",
+      "price": { "wholesale": 9600, "retail": 12000, "wholesaleOver50": 7700 },
+      "url": "PENDIENTE: link a la tienda",
+      "images": [],
+      "faqs": [],
+      "status": "activo"
+    },
+    {
+      "id": "dry-grip-60",
+      "name": "MG12 Dry Grip 60cc",
+      "category": "magnesio en polvo",
+      "sports": ["crossfit", "halterofilia", "escalada"],
+      "tagline": "Magnesio en polvo clasico para agarre seco y firme, presentacion chica/portatil.",
+      "description": "Magnesio en polvo MG12 en presentacion de 60cc, ideal para llevar al box o al gimnasio. PENDIENTE: detalle de formula y presentacion del envase.",
+      "keyFeatures": ["Formato en polvo tradicional", "Presentacion de 60cc, ideal para viajar"],
+      "benefits": ["Reduce el deslizamiento de las manos en barra, kettlebell y anillas"],
+      "idealFor": "Atletas de crossfit, halterofilia y escalada que entrenan con cargas altas o alto volumen.",
+      "usage": "PENDIENTE: modo de uso recomendado.",
+      "size": "60cc",
+      "currency": "ARS",
+      "price": { "wholesale": 4300, "retail": 6000, "wholesaleOver50": 3400 },
+      "url": "PENDIENTE: link a la tienda",
+      "images": [],
+      "faqs": [],
+      "status": "activo"
     }
   ]
 }

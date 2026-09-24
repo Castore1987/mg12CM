@@ -1,4 +1,4 @@
-import { loadBrandVoice, loadProducts } from "../knowledgeBase/index.js";
+import { loadBrandVoice, loadCatalog } from "../knowledgeBase/index.js";
 
 /**
  * Construye el system prompt que define la personalidad del Community
@@ -7,14 +7,16 @@ import { loadBrandVoice, loadProducts } from "../knowledgeBase/index.js";
  */
 export function buildPersonaSystemPrompt(): string {
   const voice = loadBrandVoice();
-  const products = loadProducts();
+  const catalog = loadCatalog();
 
-  const productList = products
+  const productList = catalog.products
     .map(
       (p) =>
-        `- ${p.name} (${p.category}, deportes: ${p.sports.join(", ")}): ${p.tagline}. Beneficios: ${p.benefits.join(
+        `- ${p.name} (${p.category}, ${p.size}, deportes: ${p.sports.join(", ")}): ${p.tagline} Beneficios: ${p.benefits.join(
           "; "
-        )}.`
+        )}. Precio por menor $${p.price.retail} ${p.currency} / por mayor $${p.price.wholesale} ${
+          p.currency
+        } / por mayor +50u. $${p.price.wholesaleOver50} ${p.currency}.`
     )
     .join("\n");
 
@@ -30,6 +32,8 @@ Estilo de emojis: ${voice.emojiStyle}.
 
 Catalogo de productos disponible (esta es la UNICA informacion de producto que podes dar por cierta):
 ${productList}
+
+Compra minima mayorista: $${catalog.wholesaleMinOrder} ${catalog.currency}.
 
 Reglas estrictas:
 1. Nunca inventes precios, stock, tiempos de envio, ingredientes o promesas que no esten en el catalogo o en la informacion que te pasen.

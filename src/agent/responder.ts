@@ -1,10 +1,16 @@
 import { askClaude } from "./claudeClient.js";
 import { buildPersonaSystemPrompt } from "./persona.js";
 import { findFaqAnswer, searchRelevantProducts, type ScoredProduct } from "../knowledgeBase/index.js";
+import type { Product } from "../types.js";
 
 export interface InquiryContext {
   matchedProducts: ScoredProduct[];
   faqMatch: ReturnType<typeof findFaqAnswer>;
+}
+
+function formatPrice(product: Product): string {
+  const { retail, wholesale, wholesaleOver50 } = product.price;
+  return `precio por menor $${retail} ${product.currency} (por mayor $${wholesale}, y $${wholesaleOver50} en compras mayoristas de mas de 50 unidades)`;
 }
 
 /**
@@ -25,7 +31,7 @@ function ruleBasedFallback(context: InquiryContext): string {
   }
   if (context.matchedProducts.length > 0) {
     const p = context.matchedProducts[0].product;
-    return `Te cuento sobre ${p.name}: ${p.tagline} ${p.benefits[0] ?? ""} Mas info: ${p.url}`.trim();
+    return `Te cuento sobre ${p.name}: ${p.tagline} ${p.benefits[0] ?? ""} Precio: ${formatPrice(p)}. Mas info: ${p.url}`.trim();
   }
   return "Gracias por escribirnos! No tenemos un dato puntual para esa consulta todavia, asi que la vamos a derivar al equipo de MG12 para darte una respuesta precisa.";
 }
@@ -56,9 +62,9 @@ la consulta al equipo humano de MG12 si hace falta un dato especifico.`,
     const contextBlock = context.matchedProducts
       .map(
         (m) =>
-          `Producto: ${m.product.name}\nTagline: ${m.product.tagline}\nBeneficios: ${m.product.benefits.join(
+          `Producto: ${m.product.name} (${m.product.size})\nTagline: ${m.product.tagline}\nBeneficios: ${m.product.benefits.join(
             "; "
-          )}\nUso: ${m.product.usage}\nPrecio: ${m.product.price} ${m.product.currency}\nLink: ${m.product.url}`
+          )}\nUso: ${m.product.usage}\nPrecio: ${formatPrice(m.product)}\nLink: ${m.product.url}`
       )
       .join("\n\n");
 

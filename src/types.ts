@@ -3,6 +3,12 @@ export interface ProductFaq {
   a: string;
 }
 
+export interface PriceTiers {
+  wholesale: number;
+  retail: number;
+  wholesaleOver50: number;
+}
+
 export interface Product {
   id: string;
   name: string;
@@ -14,8 +20,9 @@ export interface Product {
   benefits: string[];
   idealFor: string;
   usage: string;
-  price: string;
+  size: string;
   currency: string;
+  price: PriceTiers;
   url: string;
   images: string[];
   faqs: ProductFaq[];
@@ -25,6 +32,8 @@ export interface Product {
 export interface ProductCatalog {
   brand: string;
   updatedAt: string;
+  currency: string;
+  wholesaleMinOrder: number;
   products: Product[];
 }
 
