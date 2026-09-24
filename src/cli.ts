@@ -6,7 +6,15 @@ import { generateReply } from "./agent/responder.js";
 import { computeBestTimes, formatSlot } from "./analytics/bestTime.js";
 import { computeAdSuggestions } from "./analytics/adSuggestions.js";
 import { loadInquiries, loadMetrics, logInquiry } from "./analytics/metricsStore.js";
+import { suggestGrowthTactics } from "./growth/playbook.js";
 import { config } from "./config.js";
+import type { GrowthGoal } from "./types.js";
+
+function currentIsoWeek(): number {
+  const now = new Date();
+  const start = new Date(now.getFullYear(), 0, 1);
+  return Math.ceil(((now.getTime() - start.getTime()) / 86400000 + start.getDay() + 1) / 7);
+}
 
 const program = new Command();
 program.name("mg12-cm").description("Agente Community Manager de MG12 para Instagram");
@@ -94,6 +102,28 @@ program
     if (opts.product) logInquiry(opts.product);
     const reply = await generateReply(message);
     console.log(reply);
+  });
+
+program
+  .command("suggest-growth")
+  .description("Sugiere sorteos, promociones y otras tacticas para sumar seguidores/engagement/ventas")
+  .option("-g, --goal <goal>", "seguidores | engagement | ventas | contenido (default: todas)")
+  .option("-n, --limit <n>", "cantidad de sugerencias", "3")
+  .action((opts) => {
+    const tactics = suggestGrowthTactics({
+      goal: opts.goal as GrowthGoal | undefined,
+      limit: Number(opts.limit),
+      offset: currentIsoWeek(),
+    });
+    if (tactics.length === 0) {
+      console.log("Sin tacticas para ese objetivo. Revisa data/growth-playbook.json.");
+      return;
+    }
+    tactics.forEach((t) => {
+      console.log(
+        `\n[${t.type}] ${t.title} (esfuerzo: ${t.effort}, costo: ${t.cost})\n${t.description}\nQue hace falta: ${t.requirements}`
+      );
+    });
   });
 
 program

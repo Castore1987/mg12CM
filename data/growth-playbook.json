@@ -1,0 +1,115 @@
+{
+  "_readme": "Catalogo de tacticas de crecimiento (sorteos, promociones, colaboraciones, etc.) que el agente puede sugerir. Son ideas de buenas practicas de marketing en Instagram para marcas chicas sin tienda online; podes editarlas, sumar mas o ajustar 'requirements' segun lo que MG12 pueda sostener operativamente.",
+  "tactics": [
+    {
+      "id": "sorteo-clasico-seguir-etiquetar",
+      "type": "sorteo",
+      "title": "Sorteo clasico: seguir + etiquetar 2 amigos",
+      "description": "Sortear un combo de productos (ej. Dry Grip 100cc + Liquid Grip 60ml) entre quienes sigan la cuenta, etiqueten a 2 personas y comenten por que quieren mejorar su agarre. Sube alcance y seguidores rapido.",
+      "requirements": "1-2 productos para el premio, definir fecha de cierre y mecanica de sorteo (a mano alzada, app de sorteos, o en vivo).",
+      "effort": "bajo",
+      "cost": "bajo",
+      "goals": ["seguidores", "engagement"]
+    },
+    {
+      "id": "sorteo-colaborativo-box-estudio",
+      "type": "colaboracion",
+      "title": "Sorteo colaborativo con un box/estudio local",
+      "description": "Coorganizar un sorteo con un box de crossfit, estudio de pole/tela o gimnasio de escalada: el premio incluye productos MG12 + una clase/pase del estudio. Cada cuenta lo publica y listo, se cruzan las dos audiencias.",
+      "requirements": "Acuerdo con un local/instructor que ya use o quiera probar el producto. Ideal elegir un partner cuya audiencia coincida con un deporte del catalogo.",
+      "effort": "medio",
+      "cost": "bajo",
+      "goals": ["seguidores", "engagement"]
+    },
+    {
+      "id": "programa-embajadores",
+      "type": "colaboracion",
+      "title": "Programa de embajadores/atletas locales",
+      "description": "Regalar producto a instructores o atletas con buena llegada en su disciplina (crossfit, escalada, pole, tela) a cambio de que lo usen y mencionen en su contenido. Genera contenido autentico y nuevas audiencias de forma sostenida.",
+      "requirements": "Stock para regalar, criterios claros de seleccion (comunidad activa, buen trato, deporte relevante), acuerdo simple (verbal o por escrito) sobre que se espera a cambio.",
+      "effort": "medio",
+      "cost": "medio",
+      "goals": ["seguidores", "engagement", "contenido"]
+    },
+    {
+      "id": "descuento-referidos",
+      "type": "referido",
+      "title": "Codigo de descuento por referido ('trae un amigo')",
+      "description": "Dar un codigo/palabra clave a cada cliente para que la comparta; quien lo usa y quien lo comparte obtienen un descuento o un producto chico de regalo en su proxima compra.",
+      "requirements": "Definir el canal de venta (DM de Instagram / WhatsApp, ya que no hay tienda online) y como se valida el codigo al momento de coordinar el pago/envio.",
+      "effort": "bajo",
+      "cost": "bajo",
+      "goals": ["ventas", "seguidores"]
+    },
+    {
+      "id": "combo-pack-ahorro",
+      "type": "promocion",
+      "title": "Pack ahorro combinando presentaciones",
+      "description": "Armar un combo (ej. Dry Grip 100cc + Liquid Grip 60ml, o los 3 tamanos chicos 'para probar') con un precio levemente mejor que comprarlos por separado. Facilita el upsell y probar mas de un producto.",
+      "requirements": "Definir el precio del combo respetando el margen (usar como base los precios por menor de data/products.json).",
+      "effort": "bajo",
+      "cost": "bajo",
+      "goals": ["ventas"]
+    },
+    {
+      "id": "descuento-lanzamiento-nuevos-seguidores",
+      "type": "promocion",
+      "title": "Descuento de bienvenida para nuevos seguidores",
+      "description": "Ofrecer un descuento chico (ej. 10-15%) a quien siga la cuenta y escriba por DM mencionando una palabra clave del ultimo post. Convierte seguidores nuevos en primera compra.",
+      "requirements": "Definir el porcentaje/monto y por cuanto tiempo dura la promo.",
+      "effort": "bajo",
+      "cost": "bajo",
+      "goals": ["ventas", "seguidores"]
+    },
+    {
+      "id": "desafio-reel-30-dias-grip",
+      "type": "desafio_ugc",
+      "title": "Desafio en Reels: '30 dias de agarre'",
+      "description": "Invitar a la comunidad a mostrar su progreso de agarre/fuerza usando productos MG12 durante X dias, con un hashtag propio (ej. #GripChallengeMG12), y repostear los mejores en la cuenta.",
+      "requirements": "Definir duracion del desafio y un premio simple para quien mas se destaque (producto o descuento).",
+      "effort": "medio",
+      "cost": "bajo",
+      "goals": ["engagement", "seguidores", "contenido"]
+    },
+    {
+      "id": "repost-ugc-con-descuento",
+      "type": "desafio_ugc",
+      "title": "Reposteo de contenido de clientes con descuento",
+      "description": "Cada vez que un cliente etiquete a MG12 usando el producto, resubir esa historia/post dando credito, y ofrecer un pequeno descuento en su proxima compra como agradecimiento.",
+      "requirements": "Monitorear menciones y etiquetas de forma regular (parte del trabajo habitual del Community Manager).",
+      "effort": "bajo",
+      "cost": "bajo",
+      "goals": ["engagement", "contenido"]
+    },
+    {
+      "id": "colaboracion-marca-complementaria",
+      "type": "colaboracion",
+      "title": "Colaboracion cruzada con una marca no competidora",
+      "description": "Shoutout mutuo o sorteo conjunto con una marca complementaria (ropa deportiva, cintas/vendas, accesorios de pole/tela) para llegar a audiencias afines sin competir directamente.",
+      "requirements": "Identificar 2-3 marcas candidatas y proponer un intercambio simple (post + historia cada una).",
+      "effort": "medio",
+      "cost": "bajo",
+      "goals": ["seguidores"]
+    },
+    {
+      "id": "encuestas-historias",
+      "type": "contenido",
+      "title": "Encuestas y preguntas en historias",
+      "description": "Usar stickers de encuesta/pregunta en historias (ej. 'polvo o liquido?', 'que producto probarias primero?') para generar interaccion diaria de bajo esfuerzo y entender preferencias reales de la audiencia.",
+      "requirements": "Ninguno especial, solo constancia (2-3 veces por semana).",
+      "effort": "bajo",
+      "cost": "bajo",
+      "goals": ["engagement", "contenido"]
+    },
+    {
+      "id": "contenido-educativo-recurrente",
+      "type": "contenido",
+      "title": "Serie educativa fija (tips de agarre por deporte)",
+      "description": "Publicar de forma recurrente (ej. todos los miercoles) un tip tecnico sobre agarre para un deporte distinto cada semana, posicionando a MG12 como referente de la categoria, no solo como vendedor.",
+      "requirements": "Coordinar con el calendario de contenido (pilar 'tip_tutorial') para que sea sistematico.",
+      "effort": "bajo",
+      "cost": "bajo",
+      "goals": ["engagement", "contenido"]
+    }
+  ]
+}

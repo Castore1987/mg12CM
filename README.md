@@ -6,10 +6,11 @@ agarre (grip) en crossfit, escalada, pole dance, tela y disciplinas afines.
 El agente:
 
 - **Responde consultas de clientes/seguidores** usando la info real del catalogo (no inventa datos).
-- **Genera contenido para Instagram** de forma periodica (calendario semanal con captions, hashtags y brief visual).
+- **Genera contenido para Instagram** de forma periodica (calendario semanal con captions, hashtags, brief visual y guion de reel listo para grabar).
 - **Analiza metricas** de los posts publicados para detectar los mejores dias/horarios para publicar.
 - **Publica en el mejor horario** (opcional, requiere habilitarlo explicitamente).
 - **Sugiere publicidad paga** cuando los datos lo justifican (posts organicos que conviene boostear, segmentos que rinden mal, productos con mucha demanda de consultas y poca presencia en el contenido).
+- **Sugiere sorteos, promociones y colaboraciones** para sumar seguidores, engagement o ventas (ver seccion 6).
 
 > Este repo es el "cerebro" del Community Manager. Para que publique de
 > verdad en Instagram necesita credenciales reales de Meta (ver mas abajo).
@@ -84,6 +85,31 @@ Limitaciones a tener en cuenta (son de la propia API de Meta, no de este proyect
 - Las respuestas automaticas a **DMs** requieren ademas la API de Messenger/Instagram Messaging y cumplir las politicas de Meta sobre bots — este repo trae el flujo de respuesta a **comentarios** (`InstagramGraphClient.replyToComment`) listo, y la logica de generacion de respuesta (`agent/responder.ts`) reutilizable para DMs el dia que se sume esa integracion.
 - Hay limites de rate (llamadas por hora) — el scheduler ya esta pensado para correr con baja frecuencia (una vez por hora como mucho).
 
+### Que necesito de vos (y que NO)
+
+**Nunca compartas el mail y la contraseña de la cuenta de Instagram/Facebook**
+en el chat ni en ningun lado: no hace falta, va contra las politicas de Meta
+usarlos con automatizaciones de terceros, y expone la cuenta a que la bloqueen
+o se la roben. Lo que realmente se necesita para la integracion real son las
+credenciales de la seccion 3 (`IG_ACCESS_TOKEN` + `IG_BUSINESS_ACCOUNT_ID`),
+que se generan desde developers.facebook.com y **no exponen la contraseña**.
+Si queres, te puedo guiar paso a paso para generarlas cuando llegue el momento.
+
+Mientras tanto, sin ninguna credencial de Meta, puedo trabajar igual si me
+compartis:
+- El **link (o @usuario) de la cuenta de Instagram**, para revisar lo que ya
+  esta publicado (bio, destacadas, tipo de fotos/reels, tono actual) y usarlo
+  como base para escribir descripciones y ajustar `data/brand-voice.json`.
+  Ojo: Instagram limita mucho lo que se puede ver sin haber iniciado sesion
+  (suele mostrar solo la bio y poco mas), asi que si el analisis automatico
+  trae poca info, lo mejor es que me pases capturas o texto de los ultimos
+  posts/captions, o un export de Instagram Insights (Meta Business Suite ->
+  Estadisticas -> Exportar datos) para calcular mejores horarios con datos
+  reales en vez de los defaults del rubro.
+- Fotos o videos que ya tengan de los productos (para describir mejor cada
+  uno) y cualquier venta/consulta frecuente que reciban, para afinar las
+  sugerencias de publicidad y de contenido.
+
 ## 4. Uso por linea de comandos
 
 ```bash
@@ -95,6 +121,7 @@ npm run cm -- analyze-best-times           # calcula los mejores dias/horarios s
 npm run cm -- suggest-ads                  # sugerencias de publicidad basadas en metricas + consultas de clientes
 npm run cm -- analytics-report             # trae insights de Instagram (si hay credenciales) y arma el reporte semanal
 npm run cm -- respond "tu consulta aca"    # prueba la respuesta del agente a una consulta de cliente
+npm run cm -- suggest-growth --goal seguidores -n 3   # sugiere sorteos/promos/colaboraciones (goal: seguidores|engagement|ventas|contenido)
 npm run cm -- start                        # deja el scheduler corriendo (contenido semanal, publicacion horaria, analitica semanal)
 ```
 
@@ -117,7 +144,18 @@ Markdown en `reports/`.
 Estas reglas son deterministas (no dependen de IA), por eso estan cubiertas
 por tests en `tests/`.
 
-## 6. Modo de trabajo recomendado (seguro por default)
+## 6. Sorteos, promociones y otras formas de sumar seguidores
+
+`data/growth-playbook.json` tiene un catalogo editable de tacticas de
+crecimiento (sorteos, promociones, colaboraciones con boxes/estudios,
+programa de embajadores, desafios de UGC en Reels, etc.), pensadas para una
+marca sin tienda online que vende por DM/WhatsApp. `npm run cm -- suggest-growth`
+las sugiere filtradas por objetivo y las va rotando semana a semana para no
+repetir siempre la misma. Sumale o edita tacticas directamente en ese archivo
+segun lo que el equipo pueda sostener (stock disponible para regalar,
+relaciones con instructores/estudios, etc.).
+
+## 7. Modo de trabajo recomendado (seguro por default)
 
 Por default (`AUTO_PUBLISH=false`) el agente **nunca publica solo**: genera
 borradores, vos los revisas con `queue`/`approve`, y recien ahi se publican.
@@ -126,7 +164,7 @@ publica de la marca conviene que la revise una persona hasta tener confianza
 en el sistema. Cuando quieras que publique automaticamente en el mejor
 horario sin intervencion, poné `AUTO_PUBLISH=true`.
 
-## 7. Tests
+## 8. Tests
 
 ```bash
 npm test
@@ -137,14 +175,15 @@ de mejores horarios, reglas de sugerencia de ads, generacion del calendario).
 No testea las llamadas reales a Claude ni a Instagram (requieren credenciales
 y red).
 
-## 8. Estructura del proyecto
+## 9. Estructura del proyecto
 
 ```
-data/                 Catalogo de productos, voz de marca, sugerencias, y estado runtime (cola, metricas)
+data/                  Catalogo de productos, voz de marca, sugerencias, playbook de crecimiento, y estado runtime (cola, metricas)
 src/knowledgeBase/     Carga y busqueda sobre el catalogo (retrieval simple por palabras clave)
 src/agent/             Persona del CM, cliente de Claude, respondedor de consultas
-src/content/           Calendario de contenido y generador de captions
+src/content/           Calendario de contenido, generador de captions/guiones de reel
 src/analytics/         Mejor horario, sugerencias de ads, almacenamiento de metricas
+src/growth/            Catalogo de sorteos/promociones y logica de sugerencia
 src/instagram/         Cliente de la Instagram Graph API
 src/scheduler/         Jobs periodicos (cron) que orquestan todo
 src/cli.ts             Interfaz de linea de comandos
@@ -154,6 +193,7 @@ reports/               Reportes generados (calendario semanal, sugerencias de ad
 ## Roadmap sugerido (no implementado todavia)
 
 - Integrar Instagram Messaging API para responder DMs automaticamente (hoy el respondedor esta listo para eso, falta el canal).
+- Generacion real de video/imagen (hoy el agente escribe el guion de reel y el brief visual, pero la grabacion/edicion la hace el equipo).
 - Subida automatica de imagenes/videos a un storage publico antes de publicar (hoy se asume que la URL ya existe).
 - Dashboard web simple sobre los reportes de `reports/`.
 - Sumar otras redes (TikTok, etc.) reutilizando el mismo motor de contenido y persona de marca.

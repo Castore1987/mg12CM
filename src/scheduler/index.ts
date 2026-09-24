@@ -55,9 +55,9 @@ export async function runWeeklyContentJob(postsPerWeek = 5): Promise<{ posts: Ge
       (p, i) =>
         `## ${i + 1}. ${p.date} - pilar: ${p.pillar}\n- Producto: ${p.productId ?? "-"}\n- Horario sugerido: ${
           p.scheduledFor
-        }\n- Estado: ${p.status}\n- Caption:\n\n${p.caption}\n\n- Visual: ${p.visualBrief}\n- Hashtags: ${p.hashtags.join(
-          " "
-        )}\n`
+        }\n- Estado: ${p.status}\n- Caption:\n\n${p.caption}\n\n- Visual: ${p.visualBrief}\n- Guion de reel:\n\n${
+          p.reelScript
+        }\n\n- Hashtags: ${p.hashtags.join(" ")}\n`
     ),
   ];
   const reportPath = writeReport(`content-calendar-${weekStart.toISOString().slice(0, 10)}.md`, reportLines.join("\n"));

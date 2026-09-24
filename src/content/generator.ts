@@ -21,6 +21,7 @@ export async function generatePostFromBrief(brief: PostBrief): Promise<Generated
 
   let caption: string;
   let visualBrief: string;
+  let reelScript: string;
 
   try {
     const system = buildPersonaSystemPrompt();
@@ -31,19 +32,30 @@ Producto relacionado: ${product ? product.name : "ninguno en particular"}
 Deporte: ${brief.sport ?? "general"}
 Brief: ${brief.briefNotes}
 
-Devolve SOLO el texto del caption (sin hashtags, los agrego yo aparte),
-en 3 a 6 lineas, cerrando con una pregunta o CTA a la comunidad.
-Despues, en una segunda parte separada por "---VISUAL---", describí en 1-2
-lineas la idea de foto/video/reel para acompañar el post.`;
+Devolve la respuesta en 3 partes, cada una separada por el marcador exacto indicado:
 
-    const raw = await askClaude({ system, prompt, maxTokens: 500 });
-    const [captionPart, visualPart] = raw.split("---VISUAL---");
+1) El texto del caption (sin hashtags, los agrego yo aparte), en 3 a 6 lineas,
+cerrando con una pregunta o CTA a la comunidad.
+2) Marcador "---VISUAL---" seguido de 1-2 lineas describiendo la idea de
+foto/video para acompañar el post.
+3) Marcador "---REEL---" seguido de un guion corto de reel/video listo para
+grabar: Hook (primeros 2 segundos), 3-4 escenas numeradas con que se ve y que
+texto en pantalla lleva cada una, y CTA final hablado o en texto. Maximo 8
+lineas. No hace falta que todos los posts sean reels, pero siempre proponé
+como se veria en formato video corto, porque es el formato que mas alcance
+tiene en Instagram hoy.`;
+
+    const raw = await askClaude({ system, prompt, maxTokens: 700 });
+    const [captionPart, rest] = raw.split("---VISUAL---");
+    const [visualPart, reelPart] = (rest ?? "").split("---REEL---");
     caption = captionPart.trim();
     visualBrief = (visualPart ?? "").trim() || "Definir pieza visual (foto/reel) alineada al brief.";
+    reelScript = (reelPart ?? "").trim() || "Definir guion de reel alineado al brief.";
   } catch {
     // Fallback sin IA: se puede editar a mano antes de publicar.
     caption = `${brief.briefNotes}\n\n(Borrador automatico - falta redaccion final o ANTHROPIC_API_KEY)`;
     visualBrief = "Definir pieza visual (foto/reel) alineada al brief.";
+    reelScript = "Definir guion de reel alineado al brief (falta redaccion final o ANTHROPIC_API_KEY).";
   }
 
   return {
@@ -51,6 +63,7 @@ lineas la idea de foto/video/reel para acompañar el post.`;
     caption,
     hashtags,
     visualBrief,
+    reelScript,
     status: "draft",
     scheduledFor: null,
     publishedAt: null,

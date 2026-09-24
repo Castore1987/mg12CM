@@ -76,6 +76,7 @@ export interface GeneratedPost extends PostBrief {
   caption: string;
   hashtags: string[];
   visualBrief: string;
+  reelScript: string;
   status: "draft" | "approved" | "published";
   scheduledFor: string | null;
   publishedAt: string | null;
@@ -119,4 +120,17 @@ export interface AdSuggestion {
   suggestedAudience?: string;
   suggestedBudgetHint?: string;
   priority: "alta" | "media" | "baja";
+}
+
+export type GrowthGoal = "seguidores" | "engagement" | "ventas" | "contenido";
+
+export interface GrowthTactic {
+  id: string;
+  type: "sorteo" | "promocion" | "colaboracion" | "referido" | "desafio_ugc" | "contenido";
+  title: string;
+  description: string;
+  requirements: string;
+  effort: "bajo" | "medio" | "alto";
+  cost: "bajo" | "medio" | "alto";
+  goals: GrowthGoal[];
 }
