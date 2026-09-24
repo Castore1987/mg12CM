@@ -1,0 +1,29 @@
+{
+  "name": "mg12-community-manager",
+  "version": "0.1.0",
+  "description": "Agente Community Manager de MG12: genera y publica contenido en Instagram, analiza metricas para elegir los mejores horarios, sugiere publicidad y responde consultas de clientes usando la base de conocimiento de productos.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/cli.ts",
+    "cm": "tsx src/cli.ts",
+    "start": "node dist/cli.js start",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.0",
+    "axios": "^1.7.7",
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.5",
+    "node-cron": "^3.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "@types/node-cron": "^3.0.11",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.2"
+  }
+}

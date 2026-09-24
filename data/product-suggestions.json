@@ -1,0 +1,23 @@
+{
+  "_readme": "Ideas de posibles productos NUEVOS para ampliar la linea de agarre MG12. Son SUGERENCIAS de negocio/marketing, no productos confirmados: el agente de respuestas a clientes NUNCA debe ofrecerlos como si existieran en el catalogo. Sirven como inspiracion de contenido ('proximamente') solo si el equipo los confirma.",
+  "suggestions": [
+    {
+      "id": "grip-trainer",
+      "name": "MG12 Grip Trainer",
+      "rationale": "Fortalecedor de antebrazo/agarre (tipo hand gripper o FatGripz). Complementa el consumible (magnesio) con un producto de entrenamiento recurrente y da contenido educativo constante (rutinas de fuerza de agarre).",
+      "sports": ["crossfit", "escalada", "pole dance", "tela"]
+    },
+    {
+      "id": "antibacterial-grip-wipes",
+      "name": "MG12 Toallitas Antibacteriales con Grip",
+      "rationale": "Toallitas de limpieza para manos/caño/tela que además dejan una capa antideslizante liviana. Cubre higiene (demanda alta post-pandemia en boxes y estudios) y agarre en un solo producto de bajo costo, ideal para venta cruzada.",
+      "sports": ["crossfit", "pole dance", "tela", "escalada", "gimnasia"]
+    },
+    {
+      "id": "kids-grip-chalk",
+      "name": "MG12 Kids (magnesio suave para escalada infantil)",
+      "rationale": "Abre un segmento de escalada infantil/familiar en boulder gyms, con empaque y comunicacion diferenciada.",
+      "sports": ["escalada"]
+    }
+  ]
+}
