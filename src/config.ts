@@ -32,10 +32,17 @@ export function requireAnthropicKey(): string {
   return config.anthropicApiKey;
 }
 
+/**
+ * IG_ACCESS_TOKEN es opcional: si no esta seteado, se asume que el propio
+ * entorno de red adjunta la autenticacion contra graph.facebook.com (por
+ * ejemplo, una credencial de API configurada a nivel de sesion/entorno). En
+ * un despliegue normal (servidor propio, sin ese mecanismo) hay que setear
+ * IG_ACCESS_TOKEN si o si.
+ */
 export function requireInstagramCredentials(): { accessToken: string; businessAccountId: string } {
-  if (!config.ig.accessToken || !config.ig.businessAccountId) {
+  if (!config.ig.businessAccountId) {
     throw new Error(
-      "Faltan IG_ACCESS_TOKEN y/o IG_BUSINESS_ACCOUNT_ID en el .env. Ver README para el setup de Meta for Developers."
+      "Falta IG_BUSINESS_ACCOUNT_ID en el .env. Ver README para el setup de Meta for Developers."
     );
   }
   return { accessToken: config.ig.accessToken, businessAccountId: config.ig.businessAccountId };

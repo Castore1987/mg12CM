@@ -87,6 +87,18 @@ Completa `.env` con:
 
 ## 3. Conectar Instagram (Meta Graph API)
 
+> **Estado actual (2026-09-24): ya conectado.** Se creo la app "Mg12 Community
+> Manager" en Meta for Developers, un Usuario del Sistema con acceso a la
+> Pagina y a la cuenta de Instagram, y se confirmo `IG_BUSINESS_ACCOUNT_ID`
+> real (`17841404202676217`, @mg12cba.ok). En esta sesion de Claude Code el
+> token no hace falta cargarlo en `.env`: quedo configurado como credencial
+> de API a nivel de entorno (nunca se peguen tokens en el chat) y el proxy de
+> red de este contenedor lo adjunta automaticamente en cada pedido a
+> `graph.facebook.com` — por eso `IG_ACCESS_TOKEN` puede quedar vacio acá.
+> **Si este proyecto se corre afuera de esta sesion** (un servidor propio),
+> ese mecanismo no existe y hay que completar `IG_ACCESS_TOKEN` con un token
+> real generado de la misma forma (Usuario del Sistema → Generar token).
+
 Instagram no tiene una API publica "simple": hay que pasar por Meta.
 
 1. Crea una app en [developers.facebook.com](https://developers.facebook.com/) (tipo "Business").
@@ -135,6 +147,7 @@ npm run cm -- generate-content --posts 5   # genera el calendario/contenido de l
 npm run cm -- queue                        # lista los posts en cola con su estado y horario
 npm run cm -- approve 0                    # aprueba el post en el indice 0 de la cola
 npm run cm -- publish-now                  # publica en Instagram lo aprobado y en horario (requiere AUTO_PUBLISH=true + credenciales)
+npm run cm -- sync-metrics                 # trae de Instagram las metricas de los posts recientes (organicos + propios) a data/metrics.json
 npm run cm -- analyze-best-times           # calcula los mejores dias/horarios segun historico (o defaults del rubro si no hay datos)
 npm run cm -- suggest-ads                  # sugerencias de publicidad basadas en metricas + consultas de clientes
 npm run cm -- analytics-report             # trae insights de Instagram (si hay credenciales) y arma el reporte semanal
@@ -196,7 +209,7 @@ y red).
 ## 9. Estructura del proyecto
 
 ```
-data/                  Catalogo de productos, voz de marca, sugerencias, playbook de crecimiento, y estado runtime (cola, metricas)
+data/                  Catalogo de productos, voz de marca, sugerencias, playbook de crecimiento. metrics.json trae precargadas las metricas reales de los 8 posts de @mg12cba.ok (via 'sync-metrics'); queue.json/inquiries.json son estado runtime (gitignored)
 src/knowledgeBase/     Carga y busqueda sobre el catalogo (retrieval simple por palabras clave)
 src/agent/             Persona del CM, cliente de Claude, respondedor de consultas
 src/content/           Calendario de contenido, generador de captions/guiones de reel

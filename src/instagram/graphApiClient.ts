@@ -15,7 +15,6 @@ export interface MediaInsight {
   mediaId: string;
   timestamp: string;
   reach: number;
-  impressions: number;
   likes: number;
   comments: number;
   saved: number;
@@ -48,7 +47,9 @@ export class InstagramGraphClient {
     this.businessAccountId = businessAccountId;
     this.http = axios.create({
       baseURL: `https://graph.facebook.com/${config.ig.graphApiVersion}`,
-      params: { access_token: accessToken },
+      // Si no hay IG_ACCESS_TOKEN, no se manda el parametro: se asume que el
+      // entorno de red adjunta la autenticacion (ver requireInstagramCredentials).
+      params: accessToken ? { access_token: accessToken } : {},
     });
   }
 
@@ -76,7 +77,9 @@ export class InstagramGraphClient {
         params: { fields: "timestamp,like_count,comments_count" },
       }),
       this.http.get(`/${mediaId}/insights`, {
-        params: { metric: "reach,impressions,saved,shares" },
+        // "impressions" fue discontinuado por Meta para media insights desde
+        // v22.0 (ver https://developers.facebook.com/docs/instagram-api/reference/ig-media/insights).
+        params: { metric: "reach,saved,shares" },
       }),
     ]);
 
@@ -89,7 +92,6 @@ export class InstagramGraphClient {
       mediaId,
       timestamp: mediaRes.data.timestamp,
       reach: metricsByName.reach ?? 0,
-      impressions: metricsByName.impressions ?? 0,
       likes: mediaRes.data.like_count ?? 0,
       comments: mediaRes.data.comments_count ?? 0,
       saved: metricsByName.saved ?? 0,

@@ -7,6 +7,7 @@ import { computeBestTimes, formatSlot } from "./analytics/bestTime.js";
 import { computeAdSuggestions } from "./analytics/adSuggestions.js";
 import { loadInquiries, loadMetrics, logInquiry } from "./analytics/metricsStore.js";
 import { suggestGrowthTactics } from "./growth/playbook.js";
+import { syncOrganicMetrics } from "./analytics/sync.js";
 import { config } from "./config.js";
 import type { GrowthGoal } from "./types.js";
 
@@ -84,6 +85,15 @@ program
     suggestions.forEach((s) => {
       console.log(`\n[${s.priority.toUpperCase()}] ${s.title}\n${s.rationale}`);
     });
+  });
+
+program
+  .command("sync-metrics")
+  .description("Trae de Instagram las metricas de los posts recientes (organicos + publicados por este sistema)")
+  .option("-l, --limit <n>", "cantidad maxima de posts a traer", "25")
+  .action(async (opts) => {
+    const { synced, failed } = await syncOrganicMetrics(Number(opts.limit));
+    console.log(`Sincronizados: ${synced}. Fallidos: ${failed}.`);
   });
 
 program

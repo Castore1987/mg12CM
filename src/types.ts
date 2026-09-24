@@ -105,7 +105,6 @@ export interface PostMetric {
   productId: string | null;
   sport: string | null;
   reach: number;
-  impressions: number;
   likes: number;
   comments: number;
   saves: number;

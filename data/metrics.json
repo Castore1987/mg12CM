@@ -1,0 +1,98 @@
+[
+  {
+    "postId": "18000625733945244",
+    "publishedAt": "2026-05-23T19:23:23+0000",
+    "pillar": "product_spotlight",
+    "productId": "dry-grip-100",
+    "sport": "crossfit",
+    "reach": 145,
+    "likes": 0,
+    "comments": 0,
+    "saves": 0,
+    "shares": 2
+  },
+  {
+    "postId": "18105154714680649",
+    "publishedAt": "2026-03-18T21:00:12+0000",
+    "pillar": "product_spotlight",
+    "productId": "liquid-grip-60",
+    "sport": "escalada",
+    "reach": 218,
+    "likes": 3,
+    "comments": 0,
+    "saves": 0,
+    "shares": 2
+  },
+  {
+    "postId": "18085714895314168",
+    "publishedAt": "2025-11-05T21:36:05+0000",
+    "pillar": "product_spotlight",
+    "productId": "liquid-grip-150",
+    "sport": "escalada",
+    "reach": 342,
+    "likes": 7,
+    "comments": 2,
+    "saves": 0,
+    "shares": 1
+  },
+  {
+    "postId": "18035747489556408",
+    "publishedAt": "2025-04-24T21:30:12+0000",
+    "pillar": "product_spotlight",
+    "productId": "liquid-grip-150",
+    "sport": "escalada",
+    "reach": 316,
+    "likes": 2,
+    "comments": 0,
+    "saves": 0,
+    "shares": 4
+  },
+  {
+    "postId": "18104894644495141",
+    "publishedAt": "2025-03-21T20:05:16+0000",
+    "pillar": "product_spotlight",
+    "productId": "super-grip-60",
+    "sport": "crossfit",
+    "reach": 252,
+    "likes": 6,
+    "comments": 0,
+    "saves": 1,
+    "shares": 2
+  },
+  {
+    "postId": "17893365693087809",
+    "publishedAt": "2025-03-18T21:10:40+0000",
+    "pillar": "product_spotlight",
+    "productId": "liquid-grip-150",
+    "sport": "escalada",
+    "reach": 298,
+    "likes": 6,
+    "comments": 0,
+    "saves": 1,
+    "shares": 4
+  },
+  {
+    "postId": "18258846826287717",
+    "publishedAt": "2025-02-13T20:45:22+0000",
+    "pillar": "product_spotlight",
+    "productId": "liquid-grip-150",
+    "sport": "escalada",
+    "reach": 429,
+    "likes": 7,
+    "comments": 0,
+    "saves": 0,
+    "shares": 5
+  },
+  {
+    "postId": "18022490048579278",
+    "publishedAt": "2024-10-14T21:05:02+0000",
+    "pillar": "product_spotlight",
+    "productId": "liquid-grip-150",
+    "sport": "escalada",
+    "reach": 494,
+    "likes": 8,
+    "comments": 5,
+    "saves": 0,
+    "shares": 6
+  }
+]

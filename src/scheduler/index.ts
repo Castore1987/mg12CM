@@ -7,8 +7,8 @@ import { generateWeeklyPosts } from "../content/generator.js";
 import { enqueuePosts, loadQueue, saveQueue } from "../content/queueStore.js";
 import { computeBestTimes, formatSlot } from "../analytics/bestTime.js";
 import { computeAdSuggestions } from "../analytics/adSuggestions.js";
-import { addMetric, loadInquiries, loadMetrics } from "../analytics/metricsStore.js";
-import { InstagramGraphClient } from "../instagram/graphApiClient.js";
+import { loadInquiries, loadMetrics } from "../analytics/metricsStore.js";
+import { syncOrganicMetrics } from "../analytics/sync.js";
 import type { GeneratedPost } from "../types.js";
 
 function nextMonday(from = new Date()): Date {
@@ -90,30 +90,10 @@ export async function runPublishDueJob(): Promise<{ published: number }> {
   return { published };
 }
 
-/** Trae metricas de Instagram para los posts publicados y arma el reporte de sugerencias de ads. */
+/** Trae metricas de Instagram (organicas + publicadas por este sistema) y arma el reporte de sugerencias de ads. */
 export async function runWeeklyAnalyticsJob(): Promise<{ reportPath: string }> {
-  const queue = loadQueue();
-
   try {
-    const client = new InstagramGraphClient();
-    for (const post of queue) {
-      if (post.status === "published" && post.igMediaId) {
-        const insight = await client.getMediaInsights(post.igMediaId);
-        addMetric({
-          postId: post.igMediaId,
-          publishedAt: insight.timestamp,
-          pillar: post.pillar,
-          productId: post.productId,
-          sport: post.sport,
-          reach: insight.reach,
-          impressions: insight.impressions,
-          likes: insight.likes,
-          comments: insight.comments,
-          saves: insight.saved,
-          shares: insight.shares,
-        });
-      }
-    }
+    await syncOrganicMetrics();
   } catch {
     // Sin credenciales de Instagram configuradas: se sigue solo con lo que
     // ya haya en data/metrics.json (por ejemplo, cargado manualmente).
