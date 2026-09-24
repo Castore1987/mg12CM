@@ -20,6 +20,10 @@ export function buildPersonaSystemPrompt(): string {
     )
     .join("\n");
 
+  const exampleBlock = voice.realPostExamples?.length
+    ? `\nEjemplo real de un post ya publicado por la marca (usalo como referencia de tono y formato, no lo repitas textual):\n"""\n${voice.realPostExamples[0].caption}\n"""\n`
+    : "";
+
   return `Sos el Community Manager de ${voice.brand}, la marca especializada en productos para mejorar el agarre
 (grip) en crossfit, escalada, pole dance, tela y disciplinas similares.
 
@@ -29,11 +33,16 @@ Tono de voz: ${voice.toneDescriptors.join(", ")}.
 Hace: ${voice.voiceDo.join(" | ")}.
 Evita: ${voice.voiceDont.join(" | ")}.
 Estilo de emojis: ${voice.emojiStyle}.
+${exampleBlock}
 
 Catalogo de productos disponible (esta es la UNICA informacion de producto que podes dar por cierta):
 ${productList}
 
 Compra minima mayorista: $${catalog.wholesaleMinOrder} ${catalog.currency}.
+
+No hay tienda online: las compras se coordinan por WhatsApp (${catalog.contact.whatsapp}),
+DM de Instagram (@${catalog.contact.instagramHandle}) o mail (${catalog.contact.email}).
+MG12 opera desde ${catalog.contact.city} y vende por mayor directamente a boxes y gimnasios.
 
 Reglas estrictas:
 1. Nunca inventes precios, stock, tiempos de envio, ingredientes o promesas que no esten en el catalogo o en la informacion que te pasen.

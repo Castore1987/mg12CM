@@ -25,21 +25,29 @@ cada una =6 SKUs.
 
 | Producto | Categoria | Deportes | Precio menor | Precio mayor | Mayor +50u. |
 |---|---|---|---|---|---|
-| Liquid Grip 150ml | Magnesio liquido | escalada, crossfit, pole dance | $26.500 | $18.500 | $14.800 |
-| Liquid Grip 60ml | Magnesio liquido | escalada, crossfit, pole dance | $10.750 | $6.450 | $5.200 |
-| Super Grip 125ml | Resina liquida | pole dance, tela, gimnasia | $22.100 | $15.400 | $12.300 |
-| Super Grip 60ml | Resina liquida | pole dance, tela, gimnasia | $8.300 | $6.000 | $4.800 |
-| Dry Grip 100cc | Magnesio en polvo | crossfit, halterofilia, escalada | $12.000 | $9.600 | $7.700 |
-| Dry Grip 60cc | Magnesio en polvo | crossfit, halterofilia, escalada | $6.000 | $4.300 | $3.400 |
+| Liquid Grip 150ml | Magnesio liquido | escalada, crossfit, calistenia, pole dance | $26.500 | $18.500 | $14.800 |
+| Liquid Grip 60ml | Magnesio liquido | escalada, crossfit, calistenia, pole dance | $10.750 | $6.450 | $5.200 |
+| Super Grip 125ml | Resina liquida | crossfit, calistenia, halterofilia, escalada, gimnasia, pole dance, (tela a confirmar) | $22.100 | $15.400 | $12.300 |
+| Super Grip 60ml | Resina liquida | crossfit, calistenia, halterofilia, escalada, gimnasia, pole dance, (tela a confirmar) | $8.300 | $6.000 | $4.800 |
+| Dry Grip 100cc | Magnesio en polvo | crossfit, halterofilia, calistenia, escalada | $12.000 | $9.600 | $7.700 |
+| Dry Grip 60cc | Magnesio en polvo | crossfit, halterofilia, calistenia, escalada | $6.000 | $4.300 | $3.400 |
 
 Todos los precios estan en ARS. Compra minima mayorista: **$250.000**
-(`wholesaleMinOrder` en `data/products.json`). El resto de los campos
-(descripcion detallada, modo de uso exacto, link de compra, imagenes, FAQs)
-sigue marcado como **`PENDIENTE`** hasta que el equipo lo confirme — por
-diseño, el agente **nunca inventa** un dato que no este en este archivo.
-Los deportes asignados a Super Grip (resina liquida) son una inferencia
-razonable a partir del tipo de producto; confirmalos o ajustalos en
-`data/products.json` si no son correctos.
+(`wholesaleMinOrder` en `data/products.json`).
+
+**Actualizado el 2026-09-24 con datos reales** extraidos del perfil publico de
+Instagram [@mg12cba.ok](https://www.instagram.com/mg12cba.ok/) (370
+seguidores, 8 posts): descripciones, beneficios, modo de uso del Liquid Grip
+("agitar, aplicar y dejar secar") y los deportes de cada formula salen de las
+captions reales que la marca ya publico, no son invencion. Tambien se cargaron
+los datos de contacto reales (`contact` en `data/products.json`): MG12 no
+tiene tienda online, vende por WhatsApp (351-294-9676), DM de Instagram o mail
+(mg12.ventas@gmail.com), y hace venta por mayor directa a boxes/gimnasios
+desde Cordoba. Lo que sigue en `PENDIENTE` (sobre todo el modo de uso de
+Super Grip y Dry Grip) es porque no aparece en ningun post todavia — no lo
+inventamos, hay que pedirselo al equipo. "Tela" queda como segmento candidato
+para Super Grip: el brief original de MG12 lo menciona pero no aparecio en el
+contenido analizado, conviene confirmarlo.
 
 Para agregar un producto nuevo, sumalo al array `products` con la misma
 estructura. En [`data/product-suggestions.json`](data/product-suggestions.json)
@@ -49,7 +57,17 @@ sugerencias de negocio — el agente nunca los ofrece como si ya existieran,
 solo son inspiracion hasta que el equipo confirme si se producen.
 
 La voz de marca (tono, que hacer/evitar, hashtags por deporte) esta en
-[`data/brand-voice.json`](data/brand-voice.json) — tambien editable.
+[`data/brand-voice.json`](data/brand-voice.json), tambien actualizada con el
+estilo real observado (bastante emoji, listas con checks ✅, preguntas de
+enganche, CTA siempre con una via de contacto) y con `realPostExamples`, dos
+captions reales usadas como referencia de tono para el generador de
+contenido. Es editable si el equipo quiere calibrar el tono distinto.
+
+> Nota de contexto (no es un dato que vaya a quedar desactualizado en el
+> agente, es solo para quien lea este README): al analizar la cuenta, el
+> ultimo post encontrado era de 2026-05-23 y en total hay 8 posts en ~14
+> meses. Vale la pena retomar una cadencia mas regular — el modulo de
+> `suggest-growth` (seccion 6) tiene tacticas concretas para eso.
 
 ## 2. Instalacion
 

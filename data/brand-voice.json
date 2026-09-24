@@ -1,38 +1,52 @@
 {
-  "_readme": "EDITAR con la identidad real de marca. Estos valores guian el tono de los captions y respuestas generadas.",
+  "_readme": "Actualizado el 2026-09-24 a partir del analisis del perfil publico @mg12cba.ok (370 seguidores, 8 posts). emojiStyle, baseHashtags, hashtagsBySport y realPostExamples reflejan lo que la marca ya publica; toneDescriptors/voiceDo/voiceDont son una interpretacion de ese estilo, ajustables si el equipo quiere calibrarlos distinto.",
   "brand": "MG12",
-  "mission": "Ayudar a atletas de crossfit, escalada, pole dance y tela a entrenar con mas confianza mejorando su agarre.",
+  "mission": "Ayudar a atletas de crossfit, calistenia, halterofilia, escalada, gimnasia y pole dance a entrenar con mas confianza y seguridad mejorando su agarre.",
   "toneDescriptors": [
-    "cercano",
-    "motivador",
-    "experto pero sin tecnicismos innecesarios",
-    "entusiasta de la comunidad fitness/aereo/escalada"
+    "directo y orientado a la venta (CTA claro en casi todos los posts)",
+    "motivador, con preguntas retoricas de enganche ('¿Te resbalas en los momentos clave?')",
+    "enumera beneficios en formato lista con checks, no en prosa larga",
+    "cercano pero enfocado en resultados/rendimiento"
   ],
   "voiceDo": [
-    "Hablar de vos (tuteo rioplatense) salvo que la cuenta defina otro tratamiento",
-    "Usar ejemplos concretos del deporte del seguidor (WOD, boulder, figura invertida, etc.)",
-    "Cerrar casi siempre con una pregunta o CTA que invite a comentar/compartir",
-    "Reconocer el esfuerzo y la comunidad antes que vender"
+    "Hablar de vos (tuteo rioplatense/cordobes)",
+    "Abrir con una frase de impacto o pregunta retorica + emoji fuerte (🔥💥✅)",
+    "Listar beneficios con checks (✅) en vez de parrafos largos",
+    "Cerrar siempre con una accion concreta: 'Hace tu pedido', '+INFO MD', o el WhatsApp/mail de contacto",
+    "Mencionar los deportes/disciplinas relevantes para mostrar amplitud de uso"
   ],
   "voiceDont": [
     "Prometer resultados medicos o de rendimiento que no se puedan sostener",
-    "Sonar como un anuncio generico de e-commerce",
+    "Dejar un post sin ninguna forma de contacto o CTA (no hay tienda online, siempre hace falta decir como comprar)",
     "Ignorar preguntas tecnicas: si no hay dato real, decir que se va a confirmar, nunca inventar"
   ],
-  "emojiStyle": "moderado (1-3 por caption), relacionados al deporte (💪🧗‍♀️🤸‍♀️🩰) y nunca en cada linea",
-  "baseHashtags": ["#MG12", "#GripGame", "#TrainGrip"],
+  "emojiStyle": "alto: la cuenta usa varios emojis por caption (checks ✅ para listas de beneficios, 🔥💥 en la apertura, emojis de deporte 🏋️‍♂️🧗‍♂️🤸‍♀️ para ejemplificar). No moderar de mas, es parte del estilo ya validado por la marca.",
+  "baseHashtags": ["#MG12", "#MejorAgarre", "#AgarrePerfecto", "#MaximoAgarre", "#RendimientoDeportivo", "#DeporteSeguro"],
   "hashtagsBySport": {
-    "crossfit": ["#Crossfit", "#WOD", "#CrossfitAtleta"],
-    "escalada": ["#Escalada", "#Boulder", "#ClimbingLife"],
-    "pole dance": ["#PoleDance", "#PoleSport", "#PoleFit"],
-    "tela": ["#TelaAerea", "#AerialSilk", "#AerialFit"],
-    "aro aereo": ["#AroAereo", "#AerialHoop"],
-    "gimnasia": ["#Gimnasia", "#Gymnastics"],
-    "halterofilia": ["#Halterofilia", "#Weightlifting"]
+    "crossfit": ["#CrossFit", "#RutinaDeGym", "#FitnessMotivation"],
+    "calistenia": ["#Calistenia"],
+    "halterofilia": ["#Halterofilia"],
+    "escalada": ["#Escalada"],
+    "gimnasia": ["#Gimnasia"],
+    "pole dance": ["#PoleDance", "#PoleSport", "#Dance"],
+    "tela": ["#TelaAerea", "#AerialSilk"],
+    "aro aereo": ["#AroAereo", "#AerialHoop"]
   },
   "ctaStyle": [
-    "Pregunta abierta sobre la experiencia del seguidor",
-    "Invitacion a etiquetar a un companero de entrenamiento",
-    "Invitacion a guardar el post para el proximo entreno"
+    "Hace tu pedido ahora + telefono/WhatsApp",
+    "+INFO MD (invitar a escribir por mensaje directo)",
+    "Mencionar 'Venta por mayor en box y gimnasios' cuando el post apunta a dueños de box/estudio"
+  ],
+  "realPostExamples": [
+    {
+      "shortcode": "DHeWOtOuLFn",
+      "producto": "super-grip",
+      "caption": "🔥 ¡Tus manos, tu arma secreta! 🔥\n\n¿Te resbalás en los momentos clave? ¿Sentís que el agarre te traiciona justo cuando más lo necesitás? 🏋️‍♂️🧗‍♂️🤸‍♀️ Tranquilo, no es tu culpa… es culpa de no usar Super Grip de MG12.\n\n✅ Máximo agarre sin pegajosidad\n✅ Secado rápido y duración prolongada\n✅ No daña la piel, sin aditivos agresivos\n✅ Ideal para CrossFit, calistenia, halterofilia, escalada, gimnasia, pole sport y dance\n\n💪 Más control, más confianza, más rendimiento.\n\nDale a tus manos lo que se merecen y llevá tu desempeño al siguiente nivel. 🚀"
+    },
+    {
+      "shortcode": "DYsVlX8JXoD",
+      "producto": "dry-grip",
+      "caption": "​💥 ¡LO NUEVO DE MG12! 💥\nPresentamos el nuevo Dry Grip: magnesio en polvo en talquera súper resistente y práctica.\n\n​👉 Formatos de 100cc y 60cc para tu comodidad.\n✊ Hace tu pedido ahora \n\n​📱3512949676\n🚚 Envíos a toda Argentina"
+    }
   ]
 }

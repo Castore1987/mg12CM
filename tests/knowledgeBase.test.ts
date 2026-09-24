@@ -2,12 +2,10 @@ import { describe, expect, it } from "vitest";
 import { findFaqAnswer, searchRelevantProducts } from "../src/knowledgeBase/index.js";
 
 describe("searchRelevantProducts", () => {
-  it("encuentra productos de escalada (Dry Grip / Liquid Grip) ante una consulta de boulder", () => {
+  it("encuentra productos etiquetados para escalada ante una consulta de boulder", () => {
     const results = searchRelevantProducts("Che, que me recomendas para escalada de boulder?");
     expect(results.length).toBeGreaterThan(0);
-    const ids = results.map((r) => r.product.id);
-    expect(ids).toContain("dry-grip-100");
-    expect(ids.some((id) => id.startsWith("super-grip"))).toBe(false);
+    expect(results.every((r) => r.product.sports.includes("escalada"))).toBe(true);
   });
 
   it("prioriza el Super Grip (resina) ante una consulta de pole dance/tela", () => {

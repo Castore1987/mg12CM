@@ -29,11 +29,19 @@ export interface Product {
   status: string;
 }
 
+export interface ContactChannels {
+  whatsapp: string;
+  email: string;
+  instagramHandle: string;
+  city: string;
+}
+
 export interface ProductCatalog {
   brand: string;
   updatedAt: string;
   currency: string;
   wholesaleMinOrder: number;
+  contact: ContactChannels;
   products: Product[];
 }
 
@@ -42,6 +50,12 @@ export interface ProductSuggestion {
   name: string;
   rationale: string;
   sports: string[];
+}
+
+export interface RealPostExample {
+  shortcode: string;
+  producto: string;
+  caption: string;
 }
 
 export interface BrandVoice {
@@ -54,6 +68,7 @@ export interface BrandVoice {
   baseHashtags: string[];
   hashtagsBySport: Record<string, string[]>;
   ctaStyle: string[];
+  realPostExamples?: RealPostExample[];
 }
 
 export type ContentPillar =
